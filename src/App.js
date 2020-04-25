@@ -5,6 +5,26 @@ import List from "./components/List";
 import Nav from "./components/Nav";
 import Comments from "./components/Comments";
 
+// Class based components
+// class App extends React.Component() {
+//   constructor() { }
+
+//   state = {
+//     mockData: {},
+//     name: "George",
+//     user: "Bobby Hoffman"
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         Something
+//         <p>{this.state.name}</p>
+//       </div>
+//     )
+//   }
+// }
+
 
 function App() {
 
@@ -36,16 +56,18 @@ function App() {
 
   const retriveFakeData = () => {
     axios.get("https://jsonplaceholder.typicode.com/comments").then(commentsData => {
-      setComments(commentsData.data);
+      setComments(commentsData.data.slice(0, 10));
     })
   }
 
   return (
     <div className="App">
       <Nav />
-      <List mockData={mockData} />
+      <List mockData={mockData} config={true} />
       <div className="row">
-        <Comments comments={comments} />
+        <Comments comments={comments} showEmail={true} />
+        <hr></hr>
+        <Comments comments={comments} showEmail={false} />
       </div>
     </div>
   );
