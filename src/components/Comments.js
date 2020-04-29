@@ -2,9 +2,9 @@ import React from 'react';
 import CommentIcon from '@material-ui/icons/Comment';
 import { Paper } from "@material-ui/core";
 
-export default function Comments(props) {
-    const comments = props.comments;
-    const showEmail = props.showEmail;
+export default function Comments({ config: { showEmail, comments } }) {
+    // const comments = props.comments;
+    // const showEmail = props.showEmail;
     return (
         <>
             {

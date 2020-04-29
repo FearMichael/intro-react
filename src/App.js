@@ -60,16 +60,31 @@ function App() {
     })
   }
 
+  const userConfig = {
+    admin: false,
+    bobby: true,
+    showEmail: false,
+    comments
+  }
+  const adminConfig = {
+    admin: false,
+    bobby: true,
+    showEmail: true,
+    comments
+  }
+
   return (
-    <div className="App">
+    // <div className="App">
+    <>
       <Nav />
       <List mockData={mockData} config={true} />
       <div className="row">
-        <Comments comments={comments} showEmail={true} />
+        <Comments config={userConfig} />
         <hr></hr>
-        <Comments comments={comments} showEmail={false} />
+        <Comments config={adminConfig} />
       </div>
-    </div>
+    </>
+    // </div>
   );
 }
 
